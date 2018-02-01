@@ -1,0 +1,111 @@
+#!/bin/bash
+
+load ../src/ovyaGitLib
+
+GIT_PROJECT_DIR=
+GIT_REPO_DIR=
+SRC_DIR=
+__BATS_DEBUG=false
+ROOT_DIR=
+
+setup() {
+    [ -z $BATS_DEBUG ] || {
+        __BATS_DEBUG=$BATS_DEBUG
+    }
+    SRC_DIR="${BATS_TEST_DIRNAME}/../src"
+    ROOT_DIR="$(mktemp -d)"
+    REPO_NAME='plop'
+    GIT_REPO_DIR="$ROOT_DIR/${REPO_NAME}.git"
+    GIT_PROJECT_DIR="$(mktemp -d)"
+    GIT_PROJECT_DIR2=
+
+    ROOT_DIR=$ROOT_DIR $SRC_DIR/git-ogw-create-repos.sh -y "$REPO_NAME"
+    echo "$GIT_REPO_DIR" "$GIT_PROJECT_DIR" 2>&1
+    git clone "$GIT_REPO_DIR" "$GIT_PROJECT_DIR" > /dev/null 2>&1
+
+    cd $GIT_PROJECT_DIR
+}
+
+teardown() {
+    cd $BATS_TEST_DIRNAME
+
+    $__BATS_DEBUG && {
+        echo "Git working directory 1 is '$GIT_PROJECT_DIR'"
+        echo "Git working directory 2 is '$GIT_PROJECT_DIR2'"
+    } || {
+        rm -rf $GIT_PROJECT_DIR
+        rm -rf $ROOT_DIR
+    }
+}
+
+__addCommit() {
+    $SRC_DIR/git-ogw-add-commit.sh > /dev/null 2>&1
+}
+
+__add() {
+    git add $@ > /dev/null 2>&1
+}
+
+__createBranch() {
+    git branch $2 "$1" > /dev/null 2>&1
+}
+
+__gotoBranch() {
+    __checkout "$1"
+}
+
+__push() {
+    git push origin "$@" > /dev/null 2>&1
+}
+
+__fetch() {
+    git fetch origin > /dev/null 2>&1
+}
+
+__merge() {
+    git merge $1 > /dev/null 2>&1
+}
+
+__checkout() {
+    git checkout "$@" > /dev/null 2>&1
+}
+
+__commitAndPushMaster() {
+    __addCommit
+    __push master
+}
+
+
+__initProjectDir2() {
+    [ -z $GIT_PROJECT_DIR2 ] && {
+        GIT_PROJECT_DIR2="$(mktemp -d)"
+        git clone "$GIT_REPO_DIR" "$GIT_PROJECT_DIR2" > /dev/null 2>&1
+    } || return 0
+}
+
+__addNewWorkTreeAndPushCommitsTo() {
+    __initProjectDir2
+    cd $GIT_PROJECT_DIR2
+
+    oglIsBranchExists $1 && __checkout $1 || __checkout -b $1
+
+    oglIsBranchExists origin/$1 && __merge origin/$1
+
+    USER="${USER}2" __addCommit
+    USER="${USER}2" __addCommit
+
+    __push $1
+
+    __checkout master
+
+    cd $GIT_PROJECT_DIR
+}
+
+__isBranchAllreadyMergedToMaster() {
+    git branch --merged master | grep -q $1 && return 0 || return 1
+}
+
+__isMasterUpToDate() {
+    __fetch
+    oglIsBranchUpToDate master
+}

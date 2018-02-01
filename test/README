@@ -1,0 +1,10 @@
+######################## ATTENTION ###################################
+## Il doit y avoir un mécanisme dans bats qui modifie le code
+## des tests de sorte que deux runs identiques consécutifs dans le
+## même test peuvent donner des retours différents.
+## Par exemple si on enchaine deux `run oglGetUpdateStatus` consécutif
+## on optiendra une première fois IS_AHEAD par exemple et la
+## deuxième fois IS_NOT_TRACKING.
+## IL FAUT DONC LIMITER AU MAXIMUM LE NOMBRE DE « RUN » DANS UN MÊME
+## TEST…
+######################## ATTENTION ###################################

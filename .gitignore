@@ -1,0 +1,6 @@
+*.log
+*.txt
+*.swp
+doc/html
+doc/latex
+bin/.installed-file

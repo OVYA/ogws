@@ -1,0 +1,8 @@
+#!/bin/bash
+
+declare -r SRC_DIR="${BASE_DIR}/src"
+declare -r BIN_DIR="${BASE_DIR}/bin"
+declare -r INSTALLED_FILES_PATH="${BIN_DIR}/.installed-file"
+declare -r DEST_DIR=/usr/local/bin
+
+. "${BASE_DIR}/vendor/bsfl/lib/bsfl.bash"

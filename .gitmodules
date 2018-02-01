@@ -1,0 +1,3 @@
+[submodule "vendor/bsfl"]
+	path = vendor/bsfl
+	url = git@github.com:OVYA/bsfl.git
