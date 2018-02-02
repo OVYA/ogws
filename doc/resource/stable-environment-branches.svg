@@ -444,7 +444,7 @@
      <g class="com.sun.star.drawing.TextShape">
       <g id="id32">
        <rect class="BoundingBox" stroke="none" fill="none" x="9550" y="17100" width="3101" height="901"/>
-       <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="494px" font-weight="400"><tspan class="TextPosition" x="10300" y="17674"><tspan fill="rgb(0,0,0)" stroke="none">staging</tspan></tspan></tspan></text>
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="494px" font-weight="400"><tspan class="TextPosition" x="10300" y="17674"><tspan fill="rgb(0,0,0)" stroke="none">release</tspan></tspan></tspan></text>
       </g>
      </g>
      <g class="com.sun.star.drawing.TextShape">

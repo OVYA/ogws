@@ -5,12 +5,23 @@
 ## @line
 ## @author Philippe Ivaldi <http://www.piprime.fr/>
 ## @author Shawn O. Pearce <spearce@spearce.org>
-## @mainpage OVYA Git Script for a Stable Mainline Branching Model
-## @details You'll find scripts here that make easy to maintain a stable mainline branching model as describe by <a href="http://www.bitsnbites.eu/a-stable-mainline-branching-model-for-git/">Marcus Geelnard</a>.<br>
-## The main difference is that we use only one release branch instead of one branch by major release.<br>
+## @mainpage OVYA Git Bash Script for a Stable Mainline Branching Model
+## @details
+## @section Workflow_scripts Workflow Scripts
+## You'll find *Bash* scripts <a href="group__workflow.html">here</a> that make easy
+## to maintain a stable mainline branching model as describe by
+## <a href="http://www.bitsnbites.eu/a-stable-mainline-branching-model-for-git/">Marcus Geelnard</a><br>
+## The main difference with our branching model compared to Marcus one
+## is that we use only one release branch instead of one branch by
+## major release.<br>
 ## Our workflow branching model looks like more to this one : <br>
 ## @image html stable-environment-branches.svg "© Marcus Geelnard (source here https://goo.gl/NPvQhw )" width=400px
 ## Further reading : <a href="http://www.bitsnbites.eu/a-tidy-linear-git-history/">A tidy, linear Git history</a>.
+## @section useful_scripts Useful Scripts
+## You'll find <a href="group__useful.html">here</a> others useful *Git* scripts used in our developers' team.
+## @section Libray Libray
+## In order to develop the mentioned scripts we have developed a set
+## of useful *bash* functions regrouped in the library <a href="ovyaGitLib_8sh.html">ovyaGitLib.sh</a>
 ## @copyright New BSD
 ## @version 0.1.0
 ## @par URL
