@@ -3,11 +3,14 @@
 
 ## @file
 ## @line
-## @author Shawn O. Pearce <spearce@spearce.org>
 ## @author Philippe Ivaldi <http://www.piprime.fr/>
-## @brief This lib provides some functions usefull to develop git script.
-## @details This lib provides some functions usefull to develop git
-## script by sourcing this file into your script.
+## @author Shawn O. Pearce <spearce@spearce.org>
+## @mainpage OVYA Git Script for a Stable Mainline Branching Model
+## @details You'll find scripts here that make easy to maintain a stable mainline branching model as describe by <a href="http://www.bitsnbites.eu/a-stable-mainline-branching-model-for-git/">Marcus Geelnard</a>.<br>
+## The main difference is that we use only one release branch instead of one branch by major release.<br>
+## Our workflow branching model looks like more to this one : <br>
+## @image html stable-environment-branches.svg "© Marcus Geelnard (source here https://goo.gl/NPvQhw )" width=400px
+## Further reading : <a href="http://www.bitsnbites.eu/a-tidy-linear-git-history/">A tidy, linear Git history</a>.
 ## @copyright New BSD
 ## @version 0.1.0
 ## @par URL

@@ -14,7 +14,7 @@ uninstall:
 .PHONY: doc
 doc:
 	@cd $(DOC_DIR); \
-	doxygen Doxyfile && echo -e "\n => Doc generated in directory $(DOC_DIR){html/latex}\n" \
+	doxygen Doxyfile && echo -e "\n => Doc can be acceded at $(DOC_DIR)/html/index.html\n" \
 
 .PHONY: gh-pages-git-branch-init
 gh-pages-git-branch-init: doc
