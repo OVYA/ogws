@@ -20,8 +20,6 @@ __link() {
     }
 }
 
-git submodule update --init
-
 find ${SRC_DIR} -type f -print0 | while IFS= read -r -d $'\0' FILE; do
     DEST_FILE="${DEST_DIR}/$(basename $FILE)"
     [ ! -e $DEST_FILE ] && __link "$FILE" "$DEST_FILE"

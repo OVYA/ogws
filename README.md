@@ -8,11 +8,15 @@ Building the documentation is done by using [Doxygen][2] with the command `make 
 
 ## Install
 
-`make install`
+```sh
+git submodule update --init
+sudo make install
+```
+If you have write access to `/usr/local/bin`, there is no need to use `sudo`.
 
 ## Uninstall
 
-`make uninstall`
+`sudo make uninstall`
 
 ## Unit tests
 
